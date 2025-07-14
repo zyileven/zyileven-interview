@@ -8,6 +8,7 @@ import {
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
+import LoadingIcon from './LoadingIcon';
 
 export default function CodeSyntax({
   code,
@@ -44,7 +45,9 @@ export default function CodeSyntax({
     }
   }, [copied]);
 
-  if (!isMounted) return null;
+  if (!isMounted) {
+    return <LoadingIcon />
+  }
 
   return (
     <div className="relative group">
