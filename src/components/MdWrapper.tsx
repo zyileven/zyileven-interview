@@ -11,8 +11,9 @@ function MdWrapper({ content }: {
 }) {
 
   const parseChild = (childs: any[]) : string => {
-    return childs.map((child) => {
-      if (typeof child === 'string') return child;
+    console.log("childs:zzz", childs);
+    if (typeof childs === "string") {return childs}
+    return childs?.map((child) => {
       if (React.isValidElement(child)) {
         // @ts-expect-error 不管他
         const childText = child.props?.children;
@@ -21,12 +22,16 @@ function MdWrapper({ content }: {
           // @ts-expect-error 不管他
           return parseChild(childText.props.children)
         } else if (Array.isArray(childText)) {
+          console.log("test:zzz", Array.isArray(childText), childText)
           return parseChild(childText);
         } else {
           return typeof childText === 'string' ? childText : '';
         }
+      } else if (typeof child === 'string') {
+        return child;
+      } else {
+        return '';
       }
-      return '';
     }).join('')
   }
 
@@ -51,10 +56,29 @@ function MdWrapper({ content }: {
               </blockquote>
             );
           },
+          // 图片处理组件：确保最大宽度不超过容器100%
+          img: ({ src, alt, title, ...props }) => (
+            <img 
+              src={src as string} 
+              alt={alt || ''}
+              title={title}
+              style={{ 
+                maxWidth: '100%', 
+                height: 'auto',
+                display: 'block',
+                margin: '10px auto',
+                borderRadius: '4px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              }}
+              {...props}
+            />
+          ),
           code({ node, className, children, ...props }) {
             if (!node) return null;
             const isCodeBlock = className?.includes("language-");
             const language = isCodeBlock ? className?.split(" ")[1]?.replace("language-", "") : "text";
+            console.log("children:zzz", children);
+            
             // 处理 children
             const codeText = Array.isArray(children)
               ? parseChild(children)
