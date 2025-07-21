@@ -22,7 +22,7 @@ const ShadowView = ({ children, mode = 'open' }: {
     }
   }, [mode]);
 
-  return <div ref={hostRef}>{children}</div>;
+  return <div className="max-w-full" ref={hostRef}>{children}</div>;
 };
 
 export default ShadowView;

@@ -11,7 +11,6 @@ function MdWrapper({ content }: {
 }) {
 
   const parseChild = (childs: any[]) : string => {
-    console.log("childs:zzz", childs);
     if (typeof childs === "string") {return childs}
     return childs?.map((child) => {
       if (React.isValidElement(child)) {
@@ -22,7 +21,6 @@ function MdWrapper({ content }: {
           // @ts-expect-error 不管他
           return parseChild(childText.props.children)
         } else if (Array.isArray(childText)) {
-          console.log("test:zzz", Array.isArray(childText), childText)
           return parseChild(childText);
         } else {
           return typeof childText === 'string' ? childText : '';
@@ -77,7 +75,6 @@ function MdWrapper({ content }: {
             if (!node) return null;
             const isCodeBlock = className?.includes("language-");
             const language = isCodeBlock ? className?.split(" ")[1]?.replace("language-", "") : "text";
-            console.log("children:zzz", children);
             
             // 处理 children
             const codeText = Array.isArray(children)
@@ -87,12 +84,15 @@ function MdWrapper({ content }: {
               <SyntaxHighlighter
                 style={atomDark}
                 language={language}
+                customStyle={{
+                  maxWidth: "100%"
+                }}
                 PreTag="div"
               >
                 {codeText as string}
               </SyntaxHighlighter>
             ) : (
-              <code style={{ background: "#e8e8e8", padding: "2px 4px" }} className={className} {...props}>
+              <code style={{ maxWidth: "100%", background: "#e8e8e8", padding: "2px 4px" }} className={className} {...props}>
                 {codeText as string}
               </code>
             );

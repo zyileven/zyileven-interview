@@ -1,4 +1,4 @@
-function namePage() {
+function DOCPage() {
   
   return (
     <div>
@@ -7,4 +7,4 @@ function namePage() {
   );
 }
 
-export default namePage;
+export default DOCPage;

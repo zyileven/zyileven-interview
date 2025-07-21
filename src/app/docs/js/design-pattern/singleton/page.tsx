@@ -6,7 +6,7 @@ async function CreateObjectPage() {
   const content = getFileContentByPath("src/md/单例模式.md")
 
   return (
-    <div>
+    <div className=''>
       <MdWrapper content={content} />
     </div>
   );

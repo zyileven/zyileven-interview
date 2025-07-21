@@ -18,7 +18,7 @@ import { Zap } from "lucide-react";
 export default function Navbar() {
 
   return (
-    <div className="w-full h-[60px] mx-0 shadow-md flex justify-around items-center gap-10">
+    <div className="w-full border-b-1 h-[60px] mx-0 shadow-md flex justify-around items-center gap-10">
       <Link href={"/"}><Zap className="mx-5 cursor-pointer" /></Link>
       <NavigationMenu className="mx-auto" viewport={false}>
         <NavigationMenuList>
