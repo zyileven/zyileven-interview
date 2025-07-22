@@ -1,9 +1,9 @@
 import MdWrapper from '@/components/MdWrapper';
 import { getFileContentByPath } from '@/lib/server-utils';
 
-async function CreateObjectPage() {
+async function WebWorkersPage() {
 
-  const content = getFileContentByPath("src/md/原型链与继承.md")
+  const content = getFileContentByPath("src/md/Web-Workers.md")
 
   return (
     <div>
@@ -12,4 +12,4 @@ async function CreateObjectPage() {
   );
 }
 
-export default CreateObjectPage;
+export default WebWorkersPage;

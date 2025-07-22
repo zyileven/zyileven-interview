@@ -2,7 +2,7 @@ function namePage() {
   
   return (
     <div>
-      content
+      前端工程化
     </div>
   );
 }

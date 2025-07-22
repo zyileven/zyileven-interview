@@ -1,3 +1,5 @@
+## This 绑定
+
 在 JavaScript 中，call 、 apply 、 bind 是允许你控制函数执行上下文的方法，虽然他们的用途相似，但在处理参数的方式以及函数调用的时间上有所不同。
 
 ### call
@@ -16,6 +18,8 @@ invite.call(employee1, "Hello", "How are you?"); // Hello John Rodson, How are y
 invite.call(employee2, "Hello", "How are you?");// Hello Jimmy Baily, How are you?
 ```
 
+### apply
+
 apply 方法类似于 call，只是他将除了 this 参数以外的其他参数整合到一个数组里，作为 apply 的第二参数
 
 ```js
@@ -29,6 +33,8 @@ function invite(greeting1, greeting2) {
 invite.apply(employee1, ["Hello", "How are you?"]); // Hello John Rodson, How are you?
 invite.apply(employee2, ["Hello", "How are you?"]);// Hello Jimmy Baily, How are you?
 ```
+
+### bind
 
 bind 方法只处理 this 绑定，并返回一个绑定后的函数，需要用户手动调用时才传参数
 

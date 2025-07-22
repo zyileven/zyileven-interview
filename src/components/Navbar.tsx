@@ -54,17 +54,17 @@ export default function Navbar() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>base</NavigationMenuTrigger>
+            <NavigationMenuTrigger>DOCS</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                <ListItem title={"绑定 this 指向"} href={"/base/call-apply-bind"} >
-                  {"call、 apply 、 bind 的区别"}
+                <ListItem title={"Javascript"} href={"/docs/js"} >
+                  {"Javascript"}
                 </ListItem>
-                <ListItem title={"创建对象的方法"} href={"/base/object/create-object"} >
-                  {"创建对象的方法"}
+                <ListItem title={"CSS"} href={"/docs/css"} >
+                  {"CSS"}
                 </ListItem>
-                <ListItem title={"Object 与 Map 的区别"} href={"/base/object/object-compare-map"} >
-                  {"Object 与 Map 的区别"}
+                <ListItem title={"Engineer"} href={"/docs/engineer"} >
+                  {"Engineer"}
                 </ListItem>
               </ul>
             </NavigationMenuContent>
