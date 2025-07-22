@@ -1,7 +1,7 @@
 import SidebarMenuList from '@/components/SidebarMenuList';
 import { Input } from '@/components/ui/input';
 import { Sidebar, SidebarHeader, SidebarProvider, SidebarRail } from '@/components/ui/sidebar';
-import { Cable, Package, Search, ShieldAlert } from 'lucide-react';
+import { Package, Search } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 type LayoutProps = {
