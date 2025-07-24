@@ -1,71 +1,37 @@
 import SidebarMenuList from '@/components/SidebarMenuList';
 import { Input } from '@/components/ui/input';
 import { Sidebar, SidebarHeader, SidebarProvider, SidebarRail } from '@/components/ui/sidebar';
-import type { ReactNode } from 'react';
 import { Package, Search } from 'lucide-react';
+import type { ReactNode } from 'react';
 
 type LayoutProps = {
   children: ReactNode;
 };
 
+// 菜单数据
 const menuData = [
   {
-    title: "Javascript",
+    title: "CSS",
     items: [
       {
-        title: "创建对象的方式",
-        url: "/docs/js/object/create-object",
-        icon: "Factory",
+        title: "居中",
+        url: "/docs/css/align-center",
+        icon: "AlignCenter",
       },
       {
-        title: "object 与 map 的区别",
-        url: "/docs/js/object/object-compare-map",
-        icon: "Zap",
+        title: "BFC 原理",
+        url: "/docs/css/bfc",
+        icon: "Container",
       },
       {
-        title: "数字精度问题",
-        url: "/docs/js/number/digital-accuracy",
-        icon: "Calculator",
+        title: "尺寸单位",
+        url: "/docs/css/unit",
+        icon: "Ruler",
       },
       {
-        title: "原型与继承",
-        url: "/docs/js/prototype",
-        icon: "Layers",
-      },
-      {
-        title: "事件循环",
-        url: "/docs/js/event-loop",
-        icon: "RefreshCw",
-      },
-      {
-        title: "this绑定",
-        url: "/docs/js/call-apply-bind",
-        icon: "Anchor",
-      },
-      {
-        title: "Web Workers",
-        url: "/docs/js/web-workers",
-        icon: "Spool",
-      },
-      {
-        title: "Array 操作",
-        url: "/docs/js/array",
-        icon: "SquareFunction",
-      },
-      {
-        title: "BOM 操作",
-        url: "/docs/js/bom",
-        icon: "SquareFunction",
-      },
-      {
-        title: "DOM 操作",
-        url: "/docs/js/dom",
-        icon: "SquareFunction",
-      },
-      {
-        title: "JS本地存储",
-        url: "/docs/js/local-storage",
-        icon: "Database",
+        title: "元素隐藏方式",
+        url: "/docs/css/visibility",
+        icon: "EyeOff",
       },
     ],
   },

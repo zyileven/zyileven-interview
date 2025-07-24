@@ -64,10 +64,13 @@ export default function Navbar() {
                   {"Javascript"}
                 </ListItem>
                 <ListItem title={"CSS"} href={"/docs/css"} >
-                  {"CSS"}
+                  {"样式"}
+                </ListItem>
+                <ListItem title={"Design Pattern"} href={"/docs/design-pattern"} >
+                  {"设计模式"}
                 </ListItem>
                 <ListItem title={"Engineer"} href={"/docs/engineer"} >
-                  {"Engineer"}
+                  {"工程化"}
                 </ListItem>
               </ul>
             </NavigationMenuContent>

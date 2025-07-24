@@ -1,72 +1,29 @@
 import SidebarMenuList from '@/components/SidebarMenuList';
 import { Input } from '@/components/ui/input';
 import { Sidebar, SidebarHeader, SidebarProvider, SidebarRail } from '@/components/ui/sidebar';
-import type { ReactNode } from 'react';
 import { Package, Search } from 'lucide-react';
+import type { ReactNode } from 'react';
 
 type LayoutProps = {
   children: ReactNode;
 };
 
+// 菜单数据
 const menuData = [
   {
-    title: "Javascript",
+    title: "设计模式",
     items: [
       {
-        title: "创建对象的方式",
-        url: "/docs/js/object/create-object",
-        icon: "Factory",
+        title: "递归",
+        url: "/docs/design-pattern/recursion",
+        icon: "AlignCenter",
       },
       {
-        title: "object 与 map 的区别",
-        url: "/docs/js/object/object-compare-map",
-        icon: "Zap",
+        title: "单例模式",
+        url: "/docs/design-pattern/singleton",
+        icon: "AlignCenter",
       },
-      {
-        title: "数字精度问题",
-        url: "/docs/js/number/digital-accuracy",
-        icon: "Calculator",
-      },
-      {
-        title: "原型与继承",
-        url: "/docs/js/prototype",
-        icon: "Layers",
-      },
-      {
-        title: "事件循环",
-        url: "/docs/js/event-loop",
-        icon: "RefreshCw",
-      },
-      {
-        title: "this绑定",
-        url: "/docs/js/call-apply-bind",
-        icon: "Anchor",
-      },
-      {
-        title: "Web Workers",
-        url: "/docs/js/web-workers",
-        icon: "Spool",
-      },
-      {
-        title: "Array 操作",
-        url: "/docs/js/array",
-        icon: "SquareFunction",
-      },
-      {
-        title: "BOM 操作",
-        url: "/docs/js/bom",
-        icon: "SquareFunction",
-      },
-      {
-        title: "DOM 操作",
-        url: "/docs/js/dom",
-        icon: "SquareFunction",
-      },
-      {
-        title: "JS本地存储",
-        url: "/docs/js/local-storage",
-        icon: "Database",
-      },
+      
     ],
   },
 ]
