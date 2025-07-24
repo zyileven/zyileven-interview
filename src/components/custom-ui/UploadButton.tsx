@@ -60,7 +60,7 @@ export const Upload: FC<{
         inputDOM.removeEventListener("change", () => {});
       }
 
-    }, [])
+    }, [url])
 
     return <>
       <Button

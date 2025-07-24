@@ -15,17 +15,17 @@ const menuData = [
       {
         title: "防抖",
         url: "/features/debounce",
-        icon: "Timer",
+        key: "Timer",
       },
       {
         title: "节流",
         url: "/features/throttle",
-        icon: "Gauge",
+        key: "Gauge",
       },
       {
         title: "自定义上传按钮",
         url: "/features/upload-button",
-        icon: "Bandage",
+        key: "Bandage",
       },
     ],
   },
@@ -35,7 +35,7 @@ const menuData = [
       {
         title: "居中",
         url: "/features/align-center",
-        icon: "AlignCenter",
+        key: "AlignCenter",
       },
     ],
   },

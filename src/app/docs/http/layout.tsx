@@ -1,43 +1,31 @@
 import SidebarMenuList from '@/components/SidebarMenuList';
 import { Input } from '@/components/ui/input';
 import { Sidebar, SidebarHeader, SidebarProvider, SidebarRail } from '@/components/ui/sidebar';
-import { Package, Search } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { Package, Search } from 'lucide-react';
 
 type LayoutProps = {
   children: ReactNode;
 };
 
-// 菜单数据
-const menuData = [
-  {
-    title: "CSS",
-    items: [
-      {
-        title: "居中",
-        url: "/docs/css/align-center",
-        icon: "AlignCenter",
-      },
-      {
-        title: "BFC 原理",
-        url: "/docs/css/bfc",
-        icon: "Container",
-      },
-      {
-        title: "尺寸单位",
-        url: "/docs/css/unit",
-        icon: "Ruler",
-      },
-      {
-        title: "元素隐藏方式",
-        url: "/docs/css/visibility",
-        icon: "EyeOff",
-      },
-    ],
-  },
-]
+const FileMap = {
+  
+}
 
 function Layout({ children }: LayoutProps) {
+    const menuData = [
+      {
+        title: "HTML",
+        items: Object.keys(FileMap).map(key => {
+          return {
+            title: FileMap[key] ?? key,
+            key: key,
+            url: `/docs/http/${key}`,
+          }
+        })
+      },
+    ]
+
 
   return (
     <SidebarProvider>
@@ -65,7 +53,7 @@ function Layout({ children }: LayoutProps) {
 
           <SidebarRail />
         </Sidebar>
-        <div className='p-6 h-[100svh] overflow-scroll flex-1'>
+        <div className='h-[100svh] overflow-scroll flex-1'>
           {children}
         </div>
       </section>

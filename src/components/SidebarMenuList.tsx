@@ -11,7 +11,6 @@ import {
   SidebarMenuButton
 } from "./ui/sidebar";
 import { FC } from "react";
-import * as LucideIcons from 'lucide-react';
 import Link from "next/link";
 
 type MenuDataType = {

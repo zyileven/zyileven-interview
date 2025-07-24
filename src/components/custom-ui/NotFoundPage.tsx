@@ -1,30 +1,11 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent } from "@/components/ui/card"
-import { Home, Search, ArrowLeft, RefreshCw, FileX } from "lucide-react"
+import { Home, ArrowLeft, RefreshCw, FileX } from "lucide-react"
 
 export default function NotFoundPage() {
-  const [searchQuery, setSearchQuery] = useState("")
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (searchQuery.trim()) {
-      console.log("搜索:", searchQuery)
-    }
-  }
-
-  const quickLinks = [
-    { name: "首页", href: "/" },
-    { name: "产品", href: "/products" },
-    { name: "文档", href: "/docs" },
-    { name: "支持", href: "/support" },
-  ]
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center p-4">
@@ -40,49 +21,6 @@ export default function NotFoundPage() {
             抱歉，您访问的页面不存在或已被移动。请检查网址是否正确，或使用下方的搜索功能。
           </p>
         </div>
-
-        {/* 搜索框 */}
-        {/* <Card className="mb-8 border border-gray-200 dark:border-gray-700 shadow-sm">
-          <CardContent className="p-4">
-            <form onSubmit={handleSearch} className="flex gap-2">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                <Input
-                  type="text"
-                  placeholder="搜索内容..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 border-gray-200 dark:border-gray-700 focus:border-gray-400 dark:focus:border-gray-500"
-                />
-              </div>
-              <Button
-                type="submit"
-                variant="outline"
-                className="border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 bg-transparent"
-              >
-                搜索
-              </Button>
-            </form>
-          </CardContent>
-        </Card> */}
-
-        {/* 快速链接 */}
-        {/* <div className="mb-8">
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">或者访问这些页面：</p>
-          <div className="flex flex-wrap justify-center gap-2">
-            {quickLinks.map((link) => (
-              <Link key={link.name} href={link.href}>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
-                >
-                  {link.name}
-                </Button>
-              </Link>
-            ))}
-          </div>
-        </div> */}
 
         {/* 操作按钮 */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center">

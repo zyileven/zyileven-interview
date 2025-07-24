@@ -1,7 +1,7 @@
 function namePage() {
   return (
-    <div>
-      这里有一些 CSS 的笔记
+    <div className="p-6">
+      这里有一些 HTTP 的笔记
     </div>
   );
 }
