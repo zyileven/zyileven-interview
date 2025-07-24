@@ -3,7 +3,7 @@ import { getFileContentByPath } from '@/lib/server-utils';
 
 async function ReactForwardRefPage() {
 
-  const content = getFileContentByPath("src/md/forwardRef.md")
+  const content = getFileContentByPath("src/md/react/forwardRef.md")
 
   return (
     <div>
