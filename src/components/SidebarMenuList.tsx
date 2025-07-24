@@ -10,8 +10,8 @@ import {
   SidebarMenuItem,
   SidebarMenuButton
 } from "./ui/sidebar";
-import { ElementType, FC } from "react";
-import { AlignCenter, Spool, Anchor, Cable, Calculator, Container, EyeOff, Factory, Layers, Lock, RefreshCw, Ruler, ShieldAlert, Zap, Timer, Gauge, Bandage, RectangleHorizontal, } from 'lucide-react';
+import { FC } from "react";
+import * as LucideIcons from 'lucide-react';
 import Link from "next/link";
 
 type MenuDataType = {
@@ -22,27 +22,6 @@ type MenuDataType = {
     icon: string;
   }[]
 }[]
-
-const iconMap: Record<string, ElementType> = {
-  Factory,
-  Zap,
-  Calculator,
-  Layers,
-  RefreshCw,
-  Anchor,
-  Lock,
-  ShieldAlert,
-  Cable,
-  Ruler,
-  EyeOff,
-  Container,
-  AlignCenter,
-  Spool,
-  Timer,
-  Gauge,
-  Bandage,
-  RectangleHorizontal
-};
 
 
 const SidebarMenuList: FC<{
@@ -60,7 +39,7 @@ const SidebarMenuList: FC<{
         <SidebarGroupContent>
           <SidebarMenu>
             {group.items.map((item) => {
-              const IconComponent = iconMap[item.icon];
+              const IconComponent = LucideIcons[item.icon];
               return <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton 
                   asChild 
