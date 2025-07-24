@@ -1,6 +1,6 @@
 function namePage() {
   return (
-    <div>
+    <div className="p-6">
       这里有一些 前端工程化 的笔记
     </div>
   );

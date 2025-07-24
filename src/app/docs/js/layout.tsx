@@ -31,7 +31,7 @@ function Layout({ children }: LayoutProps) {
         title: "Javascript",
         items: Object.keys(FileMap).map(key => {
           return {
-            title: FileMap[key],
+            title: FileMap[key] ?? key,
             key: key,
             url: `/docs/js/${key}`,
           }

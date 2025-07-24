@@ -25,7 +25,7 @@ function Layout({ children }: LayoutProps) {
         title: "设计模式",
         items: Object.keys(FileMap).map(key => {
           return {
-            title: FileMap[key],
+            title: FileMap[key] ?? key,
             key: key,
             url: `/docs/design-pattern/${key}`,
           }
