@@ -10,32 +10,12 @@ type LayoutProps = {
 
 const menuData = [
   {
-    title: "JavaScript 功能实现",
+    title: "Javascript",
     items: [
       {
-        title: "防抖",
-        url: "/features/debounce",
-        icon: "Timer",
-      },
-      {
-        title: "节流",
-        url: "/features/throttle",
-        icon: "Gauge",
-      },
-      {
-        title: "自定义上传按钮",
-        url: "/features/upload-button",
-        icon: "Bandage",
-      },
-    ],
-  },
-  {
-    title: "CSS 功能实现",
-    items: [
-      {
-        title: "居中",
-        url: "/features/align-center",
-        icon: "AlignCenter",
+        title: "input元素",
+        url: "/docs/html/input",
+        icon: "RectangleHorizontal",
       },
     ],
   },
@@ -44,7 +24,6 @@ const menuData = [
 function Layout({ children }: LayoutProps) {
 
   return (
-
     <SidebarProvider>
       <section className="w-full flex bg-background">
         <Sidebar className="static top-0 border-r">
@@ -54,7 +33,7 @@ function Layout({ children }: LayoutProps) {
                 <Package className="h-4 w-4" />
               </div>
               <div className="flex flex-col">
-                <span className="font-semibold">Playground</span>
+                <span className="font-semibold">烂笔头</span>
                 <span className="text-xs text-muted-foreground"></span>
               </div>
             </div>
@@ -70,14 +49,11 @@ function Layout({ children }: LayoutProps) {
 
           <SidebarRail />
         </Sidebar>
-        <section className='p-6 h-[100svh] overflow-scroll flex-1'>
+        <div className='p-6 h-[100svh] overflow-scroll flex-1'>
           {children}
-        </section>
+        </div>
       </section>
     </SidebarProvider>
-
-
-
   );
 }
 

@@ -26,7 +26,7 @@ export default function Navbar() {
             <NavigationMenuTrigger>Home</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
+                {/* <li className="row-span-3">
                   <NavigationMenuLink asChild>
                     <Link
                       className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
@@ -40,7 +40,7 @@ export default function Navbar() {
                       </p>
                     </Link>
                   </NavigationMenuLink>
-                </li>
+                </li> */}
                 <ListItem href="/docs" title="Introduction">
                   Re-usable components built using Radix UI and Tailwind CSS.
                 </ListItem>
@@ -54,9 +54,12 @@ export default function Navbar() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>DOCS</NavigationMenuTrigger>
+            <NavigationMenuTrigger>笔记文档</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                <ListItem title={"HTML"} href={"/docs/html"} >
+                  {"Html"}
+                </ListItem>
                 <ListItem title={"Javascript"} href={"/docs/js"} >
                   {"Javascript"}
                 </ListItem>
@@ -71,7 +74,7 @@ export default function Navbar() {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-              <Link href="/docs">Docs</Link>
+              <Link href="/features">功能实现</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>

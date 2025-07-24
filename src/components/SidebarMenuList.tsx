@@ -11,7 +11,7 @@ import {
   SidebarMenuButton
 } from "./ui/sidebar";
 import { ElementType, FC } from "react";
-import { AlignCenter, Spool, Anchor, Cable, Calculator, Container, EyeOff, Factory, Layers, Lock, RefreshCw, Ruler, ShieldAlert, Zap, } from 'lucide-react';
+import { AlignCenter, Spool, Anchor, Cable, Calculator, Container, EyeOff, Factory, Layers, Lock, RefreshCw, Ruler, ShieldAlert, Zap, Timer, Gauge, Bandage, RectangleHorizontal, } from 'lucide-react';
 import Link from "next/link";
 
 type MenuDataType = {
@@ -37,7 +37,11 @@ const iconMap: Record<string, ElementType> = {
   EyeOff,
   Container,
   AlignCenter,
-  Spool
+  Spool,
+  Timer,
+  Gauge,
+  Bandage,
+  RectangleHorizontal
 };
 
 

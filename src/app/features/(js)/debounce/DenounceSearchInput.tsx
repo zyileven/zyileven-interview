@@ -20,7 +20,8 @@ const SearchInput = ({
   const debouncedSearch = useDebounce(handleSearch, 2000, true);
 
   return (
-    <div className="">
+    <div>
+      <h3 className="my-2 text-[14px]">当在文本框中输入内容时，快速输入时不会执行搜索，只有暂停输入 2s 才能进行搜索</h3>
       <div className="flex ">
         <Label className="my-2 shrink-0" htmlFor="input">防抖动输入框：</Label>
         <Input
@@ -34,7 +35,6 @@ const SearchInput = ({
           }}
         />
       </div>
-      <h3>当在文本框中输入内容时，快速输入时不会执行搜索，只有暂停输入 2s 才能进行搜索</h3>
       <p className="my-2"><span className="font-bold">文本框数据</span>：{input}</p>
       <p className="my-2"><span className="font-bold">执行搜索的值</span>：{searchValue}</p>
     </div>
