@@ -8,70 +8,39 @@ type LayoutProps = {
   children: ReactNode;
 };
 
-const menuData = [
-  {
-    title: "Javascript",
-    items: [
-      {
-        title: "创建对象的方式",
-        url: "/docs/js/object/create-object",
-        icon: "Factory",
-      },
-      {
-        title: "object 与 map 的区别",
-        url: "/docs/js/object/object-compare-map",
-        icon: "Zap",
-      },
-      {
-        title: "数字精度问题",
-        url: "/docs/js/number/digital-accuracy",
-        icon: "Calculator",
-      },
-      {
-        title: "原型与继承",
-        url: "/docs/js/prototype",
-        icon: "Layers",
-      },
-      {
-        title: "事件循环",
-        url: "/docs/js/event-loop",
-        icon: "RefreshCw",
-      },
-      {
-        title: "this绑定",
-        url: "/docs/js/call-apply-bind",
-        icon: "Anchor",
-      },
-      {
-        title: "Web Workers",
-        url: "/docs/js/web-workers",
-        icon: "Spool",
-      },
-      {
-        title: "Array 操作",
-        url: "/docs/js/array",
-        icon: "SquareFunction",
-      },
-      {
-        title: "BOM 操作",
-        url: "/docs/js/bom",
-        icon: "SquareFunction",
-      },
-      {
-        title: "DOM 操作",
-        url: "/docs/js/dom",
-        icon: "SquareFunction",
-      },
-      {
-        title: "JS本地存储",
-        url: "/docs/js/local-storage",
-        icon: "Database",
-      },
-    ],
-  },
-]
+const FileMap = {
+  "array": "数组方法",
+  "bind-this": "this绑定",
+  "bom": "浏览器对象模型",
+  "copy": "深拷贝与浅拷贝",
+  "create-object": "创建对象的方法",
+  "digital-accuracy": "数字精度",
+  "dom": "文档对象模型",
+  "event-loop": "JS 事件循环",
+  "local-storage": "数组方法",
+  "object-vs-map": "对象与 Map 的区别",
+  "object": "对象方法",
+  "prototype": "原型与继承",
+  "set-vs-map": "Set 与 Map 的区别",
+  "web-worker": "Web 后台线程",
+}
 
 function Layout({ children }: LayoutProps) {
+    const menuData = [
+      {
+        title: "Javascript",
+        items: Object.keys(FileMap).map(key => {
+          return {
+            title: FileMap[key],
+            key: key,
+            url: `/docs/js/${key}`,
+          }
+        })
+      },
+    ]
+
+    console.log("menuData:zzz", menuData);
+    
 
   return (
     <SidebarProvider>
@@ -99,7 +68,7 @@ function Layout({ children }: LayoutProps) {
 
           <SidebarRail />
         </Sidebar>
-        <div className='p-6 h-[100svh] overflow-scroll flex-1'>
+        <div className='h-[100svh] overflow-scroll flex-1'>
           {children}
         </div>
       </section>

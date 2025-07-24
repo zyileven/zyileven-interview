@@ -1,7 +1,7 @@
 function namePage() {
   return (
     <div>
-      本页面记录了许多相关的 HTML 的知识，请通过左边的菜单栏进行访问。
+      这里有一些 前端工程化 的笔记
     </div>
   );
 }

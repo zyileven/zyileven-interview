@@ -1,8 +1,7 @@
 function namePage() {
-  
   return (
     <div>
-      前端工程化
+      这里有一些 前端工程化 的笔记
     </div>
   );
 }

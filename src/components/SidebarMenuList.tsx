@@ -19,7 +19,7 @@ type MenuDataType = {
   items: {
     title: string;
     url: string;
-    icon: string;
+    key: string;
   }[]
 }[]
 
@@ -39,17 +39,13 @@ const SidebarMenuList: FC<{
         <SidebarGroupContent>
           <SidebarMenu>
             {group.items.map((item) => {
-              const IconComponent = LucideIcons[item.icon];
-              return <SidebarMenuItem key={item.title}>
+              return <SidebarMenuItem key={item.key}>
                 <SidebarMenuButton 
                   asChild 
                   isActive={path == item.url} 
                   className="w-full"
                 >
                   <Link href={item.url} className="flex items-center gap-3 px-4 py-2">
-                    {IconComponent && (
-                      <IconComponent className="h-4 w-4" />
-                    )}
                     <span className="flex-1">{item.title}</span>
                   </Link>
                 </SidebarMenuButton>

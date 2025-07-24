@@ -8,20 +8,26 @@ type LayoutProps = {
   children: ReactNode;
 };
 
-const menuData = [
-  {
-    title: "Javascript",
-    items: [
-      {
-        title: "input元素",
-        url: "/docs/html/input",
-        icon: "RectangleHorizontal",
-      },
-    ],
-  },
-]
+const FileMap = {
+  "input": "Input 元素",
+}
 
 function Layout({ children }: LayoutProps) {
+    const menuData = [
+      {
+        title: "HTML",
+        items: Object.keys(FileMap).map(key => {
+          return {
+            title: FileMap[key],
+            key: key,
+            url: `/docs/html/${key}`,
+          }
+        })
+      },
+    ]
+
+    console.log("menuData:zzz", menuData);
+    
 
   return (
     <SidebarProvider>
@@ -49,7 +55,7 @@ function Layout({ children }: LayoutProps) {
 
           <SidebarRail />
         </Sidebar>
-        <div className='p-6 h-[100svh] overflow-scroll flex-1'>
+        <div className='h-[100svh] overflow-scroll flex-1'>
           {children}
         </div>
       </section>
