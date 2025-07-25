@@ -26,9 +26,6 @@ function Layout({ children }: LayoutProps) {
       },
     ]
 
-    console.log("menuData:zzz", menuData);
-    
-
   return (
     <SidebarProvider>
       <section className="w-full flex bg-background">
