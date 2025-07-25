@@ -7,7 +7,7 @@ async function CreateObjectPage({params}) {
   const {fileName} = await params;
   let content = ""
   try {
-    content = getFileContentByPath(`src/md/html/${fileName}.md`)
+    content = getFileContentByPath(`md/html/${fileName}.md`)
   } catch (error) {
     console.log(error);
     notFound();
