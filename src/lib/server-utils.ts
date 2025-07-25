@@ -12,8 +12,10 @@ export async function getFileContentByPath(pathDir: string) {
   
   if (isProduction) {
     // In production, fetch file from public URL
+    // Remove /public prefix from path
+    const relativePath = cleanPath.replace(/^public\//, '');
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://zyileven-interview.vercel.app';
-    const url = `${baseUrl}/${cleanPath}`;
+    const url = `${baseUrl}/${relativePath}`;
     
     try {
       const response = await fetch(url);
