@@ -1,8 +1,7 @@
 function namePage() {
-  
   return (
     <div>
-      content
+      这里有一些 React 的笔记
     </div>
   );
 }

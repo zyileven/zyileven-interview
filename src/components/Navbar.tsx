@@ -69,6 +69,9 @@ export default function Navbar() {
                 <ListItem title={"Design Pattern"} href={"/docs/design-pattern"} >
                   {"设计模式"}
                 </ListItem>
+                <ListItem title={"React"} href={"/docs/react"} >
+                  {"React框架"}
+                </ListItem>
                 <ListItem title={"Engineer"} href={"/docs/engineer"} >
                   {"工程化"}
                 </ListItem>

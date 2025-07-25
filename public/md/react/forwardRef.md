@@ -29,7 +29,7 @@ function Parent() {
 }
 ```
 
-父组件初始化时触发 useEffect，通过 inputRef 直接操作子组件的 <input> 元素
+父组件初始化时触发 useEffect，通过 inputRef 直接操作子组件的 `<input>` 元素
 
 
 
@@ -37,7 +37,7 @@ function Parent() {
 
 由于使用React.forwardRef会将子元素的引用暴露给父组件，因此父组件可以操作所有的事情，但是这样并不是最合理的状况，应该精细化到控制父组件只能使用子组件中的部分功能。
 
-结合 useImperativeHandle 可精细化控制暴露给父组件的内容，避免直接暴露整个 DOM 节点：
+结合 `useImperativeHandle` 可精细化控制暴露给父组件的内容，避免直接暴露整个 DOM 节点：
 
 ```jsx
 const SmartInput = forwardRef((props, ref) => {
@@ -65,21 +65,21 @@ function Parent() {
 
 #### 1.避免滥用
 
-优先使用 props/state 数据流，仅当需要直接操作 DOM 或子组件方法时才用 forwardRef，以保持组件解耦。
+优先使用 props/state 数据流，仅当需要直接操作 DOM 或子组件方法时才用 `forwardRef`，以保持组件解耦。
 
 #### 2.性能优化
 
-- 与 React.memo 结合：避免因 ref 传递导致子组件无效重渲染：
+- 与 `React.memo` 结合：避免因 ref 传递导致子组件无效重渲染：
 
 ```jsx
 const MemoizedComponent = memo(forwardRef((props, ref) => { /* ... */ }));
 ```
 
-- 使用 useCallback 缓存回调函数。
+- 使用 `useCallback` 缓存回调函数。
 
 #### 3.TypeScript 类型定义
 
-明确泛型参数顺序：forwardRef<元素类型, 属性类型>(...)
+明确泛型参数顺序：`forwardRef<元素类型, 属性类型>(...)`
 
 ```jsx
 interface Props { label: string; }
@@ -90,8 +90,8 @@ const FancyButton = forwardRef<HTMLButtonElement, Props>(
 
 #### 4.错误排查
 
-- ref.current 为 null：检查 forwardRef 是否包裹正确。
-- HOC 中 ref 未传递：确保 HOC 内部使用 forwardRef
+- `ref.current` 为 null：检查 `forwardRef` 是否包裹正确。
+- HOC 中 ref 未传递：确保 HOC 内部使用 `forwardRef`
 
 
 
