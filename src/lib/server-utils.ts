@@ -1,6 +1,7 @@
 import "server-only";
 import path from "path";
 import fs from "fs";
+import fetch from "node-fetch";
 
 export async function getFileContentByPath(pathDir: string) {
   // Remove leading slash if present
