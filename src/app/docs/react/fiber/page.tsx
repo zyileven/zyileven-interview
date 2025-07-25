@@ -3,7 +3,7 @@ import { getFileContentByPath } from '@/lib/server-utils';
 
 async function ReactForwardRefPage() {
 
-  const content = getFileContentByPath("/public/md/react/fiber架构.md")
+  const content = await getFileContentByPath("/public/md/react/fiber架构.md")
 
   return (
     <div>
