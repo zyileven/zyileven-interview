@@ -9,7 +9,7 @@ type LayoutProps = {
 };
 
 const FileMap = {
-  
+  "http-protocol": "http网络协议"
 }
 
 function Layout({ children }: LayoutProps) {

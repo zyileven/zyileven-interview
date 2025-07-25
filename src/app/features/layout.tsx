@@ -39,6 +39,16 @@ const menuData = [
       },
     ],
   },
+  {
+    title: "其他",
+    items: [
+      {
+        title: " 2048",
+        url: "/features/other/2048",
+        key: "2048fun",
+      },
+    ],
+  },
 ]
 
 function Layout({ children }: LayoutProps) {
