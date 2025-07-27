@@ -154,7 +154,7 @@ function Fun2048Page() {
 
   // 移动棋盘逻辑 - 向左移动
   const moveLeft = useCallback((board) => {
-    let newScore = score;
+    let newScore = score; 
     let moved = false;
     const newBoard = createEmptyBoard();
 
@@ -163,13 +163,13 @@ function Fun2048Page() {
       let previousValue = null;
 
       for (let col = 0; col < 4; col++) {
-        const value = board[row][col];
+        const value = board[row][col]; // 取出棋盘中的值
         if (value === 0) continue;
 
         if (previousValue === value) {
           // 合并瓦片
           const mergedValue = value * 2;
-          newBoard[row][currentCol - 1] = mergedValue;
+          newBoard[row][currentCol - 1] = mergedValue; // 将新的值给到棋盘左边一个的位置
           newScore += mergedValue;
           previousValue = null;
           moved = true;

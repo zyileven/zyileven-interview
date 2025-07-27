@@ -53,7 +53,7 @@ export default function CodeSyntax({
     <div className="relative group">
       <div className="rounded-lg overflow-hidden bg-white dark:bg-gray-900">
         <SyntaxHighlighter
-          className={cn(className, ``)}
+          className={cn(className, `!m-0`)}
           language={language}
           style={theme === 'dark' ? oneDark : oneLight}
           showLineNumbers={showLineNumbers}

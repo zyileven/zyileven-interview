@@ -120,3 +120,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .transform-flip-matrix {
+    transform: matrix(1, 0, 0, -1, 0, 0);
+  }
+  .transform-flip-horizontal {
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+}

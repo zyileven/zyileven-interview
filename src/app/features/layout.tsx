@@ -37,6 +37,11 @@ const menuData = [
         url: "/features/align-center",
         key: "AlignCenter",
       },
+      {
+        title: "镜像翻转",
+        url: "/features/flip",
+        key: "flip",
+      },
     ],
   },
   {
