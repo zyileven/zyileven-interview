@@ -410,6 +410,7 @@ function Fun2048Page() {
       <div className="flex justify-between items-center mb-[20px]">
         <h1>2048</h1>
       </div>
+      ↑ ↓ ← → 进行游玩
       <div ref={gamBoardRef} className="relative bg-[#bbada0] rounded-[6px] p-[12px]">
         <div className="grid grid-cols-4 gap-[12px] w-full aspect-square">
           {renderGrid()}

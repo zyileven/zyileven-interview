@@ -53,25 +53,33 @@ async function DebouncePage() {
       <div className="my-4">
         <h2 className="text-xl font-bold">二、实现代码</h2>
         <div className="w-full">
-          <Suspense fallback={<Loader />}>
-            <CodeSyntax code={debounceFileContent} language="jsx" />
-          </Suspense>
+          <div className="my-4">
+            <Suspense fallback={<Loader />}>
+              <CodeSyntax code={debounceFileContent} language="jsx" />
+            </Suspense>
+          </div>
           <div className="text-lg font-bold my-1">原理解释：</div>
           <ul>
             <li>
               1）当事件触发时，防抖函数会设置一个定时器，延迟执行目标函数
-              <CodeSyntax code={CODE1} />
+              <div className="my-4">
+                <CodeSyntax code={CODE1} />
+              </div>
             </li>
             <li>
               2）若在延迟时间内事件再次被触发，则清除前一个定时器并重新开始计时
-              <CodeSyntax code={CODE2} />
+              <div className="my-4">
+                <CodeSyntax code={CODE2} />
+              </div>
             </li>
             <li>
               3）只有当事件停止触发且延迟时间结束时，目标函数才会执行（第一步定时器中的函数<Badge variant="secondary">fnRef.current(...args)</Badge>）
             </li>
           </ul>
           <div className="text-lg font-bold my-1">使用方式：</div>
-          <CodeSyntax code={CODE3} language="jsx" />
+          <div className="my-4">
+            <CodeSyntax code={CODE3} language="jsx" />
+          </div>
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ type LayoutProps = {
 const FileMap = {
   "diff": "diff算法",
   "fiber": "fiber架构",
+  "router": "路由",
   
 }
 
