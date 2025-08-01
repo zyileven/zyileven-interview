@@ -1,84 +1,273 @@
-## Object 
+## Object 的方法
 
-### Object.assign
+### 一、创建对象的方法
 
-语法：Object.assign(targetObject, obj1, obj2, ...)
+#### Object.create(proto, [properties])
 
-将 obj1 和 obj2 上的属性全部传递到 targetObject 中。
+基于指定原型创建新对象，可添加属性描述符（如是否可写、可枚举）
 
-```js
-const obj1 = { a: 1, b: 2};
-const obj2 = { b: 3, c: 4}; 
-
-Object.assign(targetObject, obj1, obj2);
-targetObject 
-// {
-//  a: 1,
-//  b: 3, 
-//  c: 4
-// }
+```ts
+const personProto = { 
+  greet() { 
+    console.log(`Hello, ${this.name}!`);
+  } 
+};
+const john = Object.create(personProto, {
+  name: { value: "John", writable: true }
+});
+john.greet(); // 输出：Hello, John!
 ```
 
-### Object.defineProperty
+#### Object.fromEntries(entries)
 
-**`Object.defineProperty()`** 静态方法会直接在一个对象上定义一个新属性，或修改其现有属性，并返回此对象。
+将键值对数组（如 `[['a', 1], ['b', 2]]`）转换为对象
 
-#### 基本语法：
-
-Object.defineProperty(obj, prop, descriptor)
-
-`obj`
-
-要定义属性的对象。
-
-`prop`
-
-一个字符串或 `Symbol`，指定了要定义或修改的属性键。
-
-`descriptor`
-
-要定义或修改的属性的描述符。主要有configurable，enumerable，value，writable 。
-
->
-> `configurable`
->
-> 当设置为 `false` 时，
->
-> - 该属性的类型不能在数据属性和访问器属性之间更改，且
-> - 该属性不可被删除，且
-> - 其描述符的其他属性也不能被更改（但是，如果它是一个可写的数据描述符，则 `value` 可以被更改，`writable` 可以更改为 `false`）。
->
-> 默认值为 `false`。
->
-> `enumerable`
->
-> 当且仅当该属性在对应对象的属性枚举中出现时，值为 `true`。**默认值为 `false`。**
->
-> **数据描述符**还具有以下可选键值：
->
-> `value`
->
-> 与属性相关联的值。可以是任何有效的 JavaScript 值（数字、对象、函数等）。**默认值为 `undefined`。**
->
-> `writable`
->
-> 如果与属性相关联的值可以使用赋值运算符更改，则为 `true`。**默认值为 `false`。**
-
-#### 案例：
-
-```js
-Object.defineProperty(object1, 'property1', {
-  value: 42,
-  writable: false,
-  configurable: false,
-  enumerable: false
-});
-
-
-obj.property1 = 42
-// 等价于
-Object.defineProperty(object1, 'property1', {
-  value: 42,
-});
+```ts
+const entries = [['name', 'Alice'], ['age', 25]];
+const obj = Object.fromEntries(entries);
+console.log(obj); // { name: "Alice", age: 25 }
 ```
+
+### 二、属性操作与检测
+
+#### Object.keys(obj) / Object.values(obj) / Object.entries(obj)
+
+- keys()：返回对象自身可枚举属性名的数组。
+- values()：返回属性值的数组。
+- entries()：返回 [key, value] 数组
+
+```ts
+const user = { name: "Bob", age: 30 };
+console.log(Object.keys(user));    // ["name", "age"]
+console.log(Object.values(user)); // ["Bob", 30]
+console.log(Object.entries(user)); // [["name", "Bob"], ["age", 30]]
+```
+
+#### Object.hasOwn(obj, prop) / obj.hasOwnProperty(prop)
+
+检查属性是否为对象**自身属性**（非继承）
+
+> `hasOwn()` 是 ES2022 新方法，避免 `hasOwnProperty` 被重写风险。
+
+```ts
+const car = { brand: "Toyota" };
+console.log(Object.hasOwn(car, "brand")); // true
+console.log("toString" in car);           // true (继承属性)
+console.log(Object.hasOwn(car, "toString")); // false
+```
+
+### 三、原型与继承操作
+
+#### Object.getPrototypeOf(obj)
+
+返回对象的原型（等价于旧版 `obj.__proto__`）
+
+```ts
+const arr = [];
+console.log(Object.getPrototypeOf(arr) === Array.prototype); // true
+```
+
+#### Object.setPrototypeOf(obj, proto)
+
+动态设置对象的原型（性能敏感场景慎用）
+
+```ts
+const animal = { eat() { console.log("Eating...") } };
+const dog = {};
+Object.setPrototypeOf(dog, animal);
+dog.eat(); // 输出：Eating...
+```
+
+### 四、对象状态控制
+
+#### Object.freeze(obj) / Object.isFrozen(obj)
+
+**冻结对象**：禁止增/删/改属性（嵌套对象不受影响）
+
+`isFrozen()` 检查冻结状态
+
+```ts
+const obj = { score: 90 };
+Object.freeze(obj);
+obj.score = 100; // 静默失败（严格模式报错）
+console.log(Object.isFrozen(obj)); // true
+```
+
+#### Object.seal(obj) / Object.isSealed(obj)
+
+**密封对象**：禁止增/删属性，但允许修改现有属性的**值**
+
+isSealed()：检查密封状态
+
+```ts
+const obj = { x: 1 };
+Object.seal(obj);
+delete obj.x; // 失败
+obj.x = 2;    // 成功
+```
+
+#### Object.preventExtensions(obj) / Object.isExtensible(obj)
+
+禁止添加新属性，但允许修改或删除现有属性
+
+```ts
+const obj = { a: 1 };
+Object.preventExtensions(obj);
+obj.b = 2; // 失败
+console.log(Object.isExtensible(obj)); // false
+```
+
+### 五、对象复制与合并
+
+#### Object.assign(target, ...sources)
+
+合并多个对象的**可枚举自身属性**到目标对象（浅拷贝）
+
+```ts
+const target = { a: 1 };
+const source = { b: 2 };
+const result = Object.assign(target, source);
+console.log(result); // { a: 1, b: 2 }
+```
+
+**深拷贝替代方案**
+
+```ts
+// JSON 法
+const deepCopy = JSON.parse(JSON.stringify(obj)) //（不支持函数、循环引用）
+// 递归冻结
+function deepFreeze(obj) {
+  Object.freeze(obj);
+  Object.keys(obj).forEach(key => {
+    if (typeof obj[key] === "object") deepFreeze(obj[key]);
+  });
+}
+```
+
+### 六、属性描述符操作
+
+#### Object.defineProperty(obj, prop, descriptor)
+
+精细控制属性行为（可写性、可枚举性等）
+
+可控制的属性有：
+
+value：值，可以是任何JavaScript数据类型，包括原始值和对象
+
+enumerable：决定了该属性是否会在使用`for...in`循环或者`Object.keys()`等方法进行属性枚举时被列出
+
+writable：决定了属性的值是否可以被修改
+
+configurable：决定了属性是否可以被删除，以及属性的描述符是否可以被修改
+
+```ts
+const obj = {};
+Object.defineProperty(obj, "secret", {
+  value: "123",
+  enumerable: false // 不可被 for-in 遍历
+});
+console.log(Object.keys(obj)); // []（空）
+```
+
+#### Object.getOwnPropertyDescriptor(obj, prop)
+
+获取属性描述符（如 `configurable`、`writable`）
+
+```ts
+const desc = Object.getOwnPropertyDescriptor(Math, "PI");
+console.log(desc.writable); // false（PI 只读）
+```
+
+### 七、其他实用方法
+
+#### Object.is(value1, value2)
+
+比 `===` 更严格的相等判断（`NaN === NaN` 返回 `true`，`0 === -0` 返回 `false`）
+
+```ts
+console.log(Object.is(NaN, NaN)); // true
+console.log(0 === -0);            // true
+console.log(Object.is(0, -0));    // false
+```
+
+#### Object.groupBy(array, callback)
+
+ES2024 提案方法，按回调返回值分组对象（兼容性需注意）
+
+```ts
+const students = [
+  { name: "Alice", grade: "A" }, 
+  { name: "Bob", grade: "B" }
+];
+const grouped = Object.groupBy(students, s => s.grade);
+// { A: [{...}], B: [{...}] }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

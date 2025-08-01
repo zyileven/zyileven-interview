@@ -75,6 +75,9 @@ export default function Navbar() {
                 <ListItem title={"Next.js"} href={"/docs/nextjs"} >
                   {"Next.js框架"}
                 </ListItem>
+                <ListItem title={"TypeScript"} href={"/docs/typescript"} >
+                  {"TypeScript"}
+                </ListItem>
                 <ListItem title={"Engineer"} href={"/docs/engineer"} >
                   {"工程化"}
                 </ListItem>

@@ -9,37 +9,24 @@ type LayoutProps = {
 };
 
 const FileMap = {
-  "diff": "diff算法",
-  "fiber": "fiber架构",
-  "use": "use api",
-}
-
-const APIMap = {
-  "forwardRef": "forwardRef",
+  "base_types": "类型基础",
+  "function_types": "函数类型",
+  "generics": "泛型",
+  "utility_types": "工具类型",
 }
 
 function Layout({ children }: LayoutProps) {
     const menuData = [
       {
-        title: "React 框架",
+        title: "TypeScript",
         items: Object.keys(FileMap).map(key => {
           return {
             title: FileMap[key] ?? key,
             key: key,
-            url: `/docs/react/${key}`,
+            url: `/docs/typescript/${key}`,
           }
         })
       },
-      {
-        title: "React API",
-        items: Object.keys(APIMap).map(key => {
-          return {
-            title: FileMap[key] ?? key,
-            key: key,
-            url: `/docs/react/${key}`,
-          }
-        })
-      }
     ]
 
   return (
