@@ -18,7 +18,7 @@ export default function CodeSyntax({
   className
 }: {
   code: string;
-  language?: "jsx" | "javascript" | "css" | "shell";
+  language?: "jsx" | "javascript" | "css" | "shell" | "html";
   theme?: "dark" | "light";
   showLineNumbers?: boolean
   className?: string;

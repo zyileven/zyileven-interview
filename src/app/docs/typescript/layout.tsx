@@ -13,6 +13,7 @@ const FileMap = {
   "function_types": "函数类型",
   "generics": "泛型",
   "utility_types": "工具类型",
+  "type_operate": "类型操作",
 }
 
 function Layout({ children }: LayoutProps) {

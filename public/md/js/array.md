@@ -9,7 +9,7 @@
 - splice
 - concat
 
-#### `push()`
+#### `push()`在数组最后添加
 
 方法接收任意数量的参数，并将它们添加到数组末尾，返回数组的最新长度
 
@@ -20,7 +20,7 @@ console.log(count) // 2
 console.log(colors) // ["red", "green"]
 ```
 
-#### `unshift()`
+#### `unshift()`在数组最前面天添加
 
 在数组开头添加任意多个值，然后返回新的数组长度
 
@@ -30,9 +30,9 @@ let count = colors.unshift("red", "green"); // 从数组开头推入两项
 alert(count); // 2
 ```
 
-#### `splice`
+#### `splice`在特定位置添加多个元素
 
-传入三个参数，分别是开始位置、0（要删除的元素数量）、插入的元素，返回空数组
+传入三个参数，分别是**开始位置**、0（**要删除的元素数量**）、**插入的元素**，返回空数组
 
 ```js
 let colors = ["red", "green", "blue"];
@@ -41,7 +41,7 @@ console.log(colors) // red,yellow,orange,green,blue
 console.log(removed) // []
 ```
 
-#### `contact` 
+#### `contact` 在数组最后添加
 
 首先会创建一个当前数组的副本，然后再把它的参数添加到副本末尾，最后返回这个新构建的数组，不会影响原始数组。
 
@@ -61,7 +61,7 @@ console.log(colors2); // ["red", "green", "blue", "yellow", "black", "brown"]
 - splice
 - slice
 
-#### `pop()` 
+#### `pop()` 删除最后一个
 
 方法用于删除数组的最后一项，同时减少数组的`length` 值，返回被删除的项
 
@@ -72,7 +72,7 @@ console.log(item) // green
 console.log(colors.length) // 1
 ```
 
-#### `shift()`
+#### `shift()`删除第一个
 
 方法用于删除数组的第一项，同时减少数组的`length` 值，返回被删除的项
 
@@ -83,7 +83,7 @@ console.log(item) // red
 console.log(colors.length) // 1
 ```
 
-#### `splice`
+#### `splice`从指定位置开始删除特定元素
 
 传入两个参数，分别是开始位置，删除元素的数量，返回包含删除元素的数组
 
@@ -243,6 +243,8 @@ alert(colors.join("||")); // red||green||blue
 - every
 - map
 - filter
+- reduce
+- reduceRight
 - forEach
 
 #### `some` 
@@ -342,6 +344,15 @@ console.log(result);
 ## 其他方法
 
 `at`
+
+根据索引索取元素的值
+
+```js
+const array = [5, 12, 8, 130, 44];
+array.at(2) // 8
+// 等价于
+array[2] // 8
+```
 
 
 

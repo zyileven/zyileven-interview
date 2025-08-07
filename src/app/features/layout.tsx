@@ -27,6 +27,11 @@ const menuData = [
         url: "/features/upload-button",
         key: "Bandage",
       },
+      {
+        title: "轮播",
+        url: "/features/carousel",
+        key: "Carousel",
+      },
     ],
   },
   {
@@ -41,6 +46,11 @@ const menuData = [
         title: "镜像翻转",
         url: "/features/flip",
         key: "flip",
+      },
+      {
+        title: "响应式图片",
+        url: "/features/response-image",
+        key: "response-image",
       },
     ],
   },
