@@ -11,11 +11,16 @@ type LayoutProps = {
 const FileMap = {
   "diff": "diff算法",
   "fiber": "fiber架构",
-  "use": "use api",
+  "server-components": "RSC 服务端组件",
 }
 
 const APIMap = {
-  "forwardRef": "forwardRef",
+  "forwardRef": "forwardRef()",
+  "useDefferedValue": "useDefferedValue()",
+  "useLayoutEffect": "useLayoutEffect()",
+  "startTransition": "startTransition()",
+  "use": "use()",
+  "lazy": "lazy()",
 }
 
 function Layout({ children }: LayoutProps) {

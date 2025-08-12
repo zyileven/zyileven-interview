@@ -10,6 +10,9 @@ type LayoutProps = {
 
 const FileMap = {
   "router": "路由",
+  "router-handler": "路由处理程序",
+  "next-link": "Next的Link优化",
+  "next-image": "Next的Image优化"
 }
 
 

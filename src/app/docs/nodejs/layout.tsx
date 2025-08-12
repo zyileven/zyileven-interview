@@ -9,33 +9,19 @@ type LayoutProps = {
 };
 
 const FileMap = {
-  "array": "数组方法",
-  "bind-this": "this绑定",
-  "bom": "浏览器对象模型",
-  "copy": "深拷贝与浅拷贝",
-  "create-object": "创建对象的方法",
-  "digital-accuracy": "数字精度",
-  "dom": "文档对象模型",
-  "event-loop": "JS 事件循环",
-  "local-storage": "数组方法",
-  "object-vs-map": "对象与 Map 的区别",
-  "object": "对象方法",
-  "prototype": "原型与继承",
-  "set-vs-map": "Set 与 Map 的区别",
-  "web-worker": "Web 后台线程",
-  "performance": "Performance API",
-  "fetch": "fetch请求"
+  "node": "Node基础",
+  "readline": "Node的命令行输入"
 }
 
 function Layout({ children }: LayoutProps) {
     const menuData = [
       {
-        title: "Javascript",
+        title: "Node",
         items: Object.keys(FileMap).map(key => {
           return {
             title: FileMap[key] ?? key,
             key: key,
-            url: `/docs/js/${key}`,
+            url: `/docs/nodejs/${key}`,
           }
         })
       },

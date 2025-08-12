@@ -13,6 +13,8 @@ const FileMap = {
   "bfc": "BFC块级样式",
   "size": "浏览器的尺寸单位",
   "visibility": "元素隐藏方式",
+  "BEM": "BEM规范",
+  "PostCSS": "PostCSS 后处理器"
 }
 
 function Layout({ children }: LayoutProps) {
